@@ -1,13 +1,13 @@
-<?php  
-    include 'core/init.php';
-    
-//   if(user_exists('spaegod@me.com') === true){
-//       echo "exists";
-//   }
-//    else{
-//        echo "New phone who dis?";
-//    }
-//   die();
+<?php
+      include 'core/init.php'
+?>
+    <!DOCTYPE html>
+    <html lang="">
+
+    <?php include 'core/includes/head.php' ?>
+
+        <?php include 'header.php' ?>
+            <?php  
 
     if(empty($_POST) === false){
         $email = $_POST['email'];
@@ -15,26 +15,28 @@
         
             //Check if user exists
         if(empty($email) === true || empty($password) === true){
-            $errors[] = 'You need to enter a username and password';
+            $errors[] = 'You need to enter a email and password';
         } else if (user_exists($email) === false) {
             $errors[] = 'We cannot find that email. Have you registered?';
         } else if (user_active($email) === false){
             $errors[] = 'You haven\'t activated your account';
-        } else{
-                // try logging in user
+        } 
+            // Passed first check
+        else{
+            // Try logging in user
             $login = login($email, $password);
-            
             if ($login === false){
-                $errors[] = 'That username and password combination is incorrect';
+                $errors[] = 'That email and password combination is incorrect';
             } else{
                 echo 'goody';
                 // set user session
+                    $_SESSION['user_id'] = $login;
                 // redirect user home
+                    header('Location: index.php');
+                    exit();
             }
         }
-        
         print_r($errors);
-        
-        //echo $username . " " . $password;
+        //echo $login;
     }
 ?>

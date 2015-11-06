@@ -1,4 +1,9 @@
 <?php 
+
+    function logged_in(){
+        return(isset($_SESSION[user_id])) ? true : false;
+    }
+
     function user_exists($email){ 
         // Add security for SQL & SCRIPT INJECTION.
         $email = sanitize($email);
@@ -16,15 +21,13 @@
         //TERENARY OPERATOR
         return (mysql_result($query, 0) == 1) ? true : false;
     }
-
-    function user_id_from_username($email) {
+    function user_id_from_email($email) {
         $email = sanitize($email);
         return mysql_result(mysql_query("SELECT user_id FROM users WHERE email = '$email'"), 0, 'user_id');
     }
 
     function login($email, $password){
-        $email = user_id_from_username($email);
-        
+        $user_id = user_id_from_email($email);
         $email = sanitize($email);
         $password = MD5($password);
         

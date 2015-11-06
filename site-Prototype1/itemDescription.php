@@ -1,3 +1,6 @@
+<?php
+      include 'core/init.php'
+?>
 <!DOCTYPE html>
 <html lang="">
 
