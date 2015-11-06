@@ -7,7 +7,7 @@
 
         <body>
             <?php
-//                if (isset($_SESSION['user_id'])){
+//                 if (isset($_SESSION['user_id'])){
 //                    echo 'Logged in';
 //                }
 //                else{
@@ -62,12 +62,12 @@
                             </div>
                         </div>
                     </section>
-                    <?php include 'itemAdd.php'; ?>
 
-                        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-                        <script type="text/javascript" src="materialize/js/jquery1.js"></script>
-                        <!-- Compiled and minified JavaScript -->
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
+                    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                    <script type="text/javascript" src="materialize/js/jquery1.js"></script>
+                    <!-- Compiled and minified JavaScript -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
         </body>
 
     </html>

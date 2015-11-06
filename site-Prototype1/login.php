@@ -50,7 +50,6 @@
                     </form>
                 </div>
             </div>
-
             <!--
 <div>
     <div class="col s12 m6">
@@ -82,5 +81,6 @@
             <script type="text/javascript" src="materialize/js/jquery1.js"></script>
             <!-- Compiled and minified JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    </body>
 
     </html>

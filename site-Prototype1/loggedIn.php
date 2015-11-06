@@ -1,13 +1,8 @@
 <?php
       include 'core/init.php'
 ?>
-    <!DOCTYPE html>
-    <html lang="">
 
-    <?php include 'core/includes/head.php' ?>
-
-        <?php include 'header.php' ?>
-            <?php  
+    <?php  
 
     if(empty($_POST) === false){
         $email = $_POST['email'];
@@ -23,6 +18,11 @@
         } 
             // Passed first check
         else{
+            // Trying to get multiple things into the errors array to display
+            if(strlen($password) > 32){
+                    $errors[] = "Password is too long";
+            }
+            
             // Try logging in user
             $login = login($email, $password);
             if ($login === false){
@@ -36,7 +36,27 @@
                     exit();
             }
         }
-        print_r($errors);
+        //print_r($errors);
         //echo $login;
-    }
+    }else{ $errors[] = 'No data recieved'; }
 ?>
+        <!DOCTYPE html>
+        <html lang="">
+
+        <?php include 'core/includes/head.php' ?>
+
+            <?php include 'header.php';
+               
+            if(empty($errors) ===  false){
+            ?>
+                <h2>We tried to log you in but</h2>
+
+                <?php
+                echo output_errors($errors);
+            }
+            ?>
+
+
+                    </body>
+
+        </html>
