@@ -14,13 +14,16 @@
             unset($func_get_args[0]);
             // This is imploding the args and adding ' so they can look like sql query.
                
-            $fields = '\''. implode('\' , \'', $func_get_args) . '\'';
+            $fields = ''. implode(', ' , $func_get_args);
              // If you want to see uncomment the echo
                 //echo $fields;
             // Check SQL statement
                 //echo "SELECT $fields FROM users WHERE user_id = $user_id";
                 //die();
-            $data = mysql_query("SELECT $fields FROM users WHERE user_id = $user_id");
+            $data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM users WHERE user_id = $user_id"));
+            print_r($data);
+            die();
+            return $data;
         }
          
         //print_r($func_get_args);
