@@ -21,8 +21,8 @@
                 //echo "SELECT $fields FROM users WHERE user_id = $user_id";
                 //die();
             $data = mysql_fetch_assoc(mysql_query("SELECT $fields FROM users WHERE user_id = $user_id"));
-            print_r($data);
-            die();
+            // print_r($data); 
+            // die();
             return $data;
         }
          

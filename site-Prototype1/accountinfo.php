@@ -21,7 +21,7 @@
                         <div class="card-content">
                             <div class="row">
                                 <div class="col s3 offset-s2">
-                                    <h4 class="card-title grey-text text-darken-4">John Doe</h4>
+                                    <h4 class="card-title grey-text text-darken-4"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></h4>
                                     <p class="medium-small grey-text">Phone reseller</p>
                                 </div>
                                 <div class="col s2 center-align">
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
- 
+
 
 
 
